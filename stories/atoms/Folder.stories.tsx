@@ -8,7 +8,6 @@ type Story = StoryObj<typeof Folder>;
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Folder> = {
-  title: "Example/Folder",
   component: Folder,
   parameters: {
     layout: "centered",
