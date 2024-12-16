@@ -1,22 +1,29 @@
 import { FolderClosed, FolderOpen } from "lucide-react";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
+import * as Collapsible from "@radix-ui/react-collapsible";
 
 namespace Folder {
   export type Props = {
     open?: boolean;
+    onOpenChange?: (open: boolean) => void;
     name: string;
     children?: ReactNode;
   };
 }
 
-export const Folder = ({ open, name, children }: Folder.Props) => {
+export const Folder = ({
+  open,
+  onOpenChange,
+  name,
+  children,
+}: Folder.Props) => {
   return (
-    <div>
-      <div className="flex flex-row items-center gap-4">
+    <Collapsible.Root open={open} onOpenChange={onOpenChange}>
+      <Collapsible.Trigger className="flex flex-row items-center gap-4">
         {open ? <FolderOpen /> : <FolderClosed />}
         {name}
-      </div>
-      {open && children && <div className="pl-4">{children}</div>}
-    </div>
+      </Collapsible.Trigger>
+      <Collapsible.Content className="pl-4">{children}</Collapsible.Content>
+    </Collapsible.Root>
   );
 };
