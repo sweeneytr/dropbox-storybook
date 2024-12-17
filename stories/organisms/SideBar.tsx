@@ -26,17 +26,17 @@ const items = [
 ];
 
 namespace SideBar {
-  export type Props = {};
+  export type Props = { open?: boolean };
 }
 
 export const SideBar = ({}: SideBar.Props) => {
   return (
-    <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
+    <Sidebar className="p-4 bg-gray-600 border-gray-200">
+      <SidebarContent className="bg-gray-500">
+        <SidebarGroup className="gap-4">
           <SidebarGroupLabel>Application</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
+          <SidebarGroupContent className="gap-4">
+            <SidebarMenu className="gap-4">
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
