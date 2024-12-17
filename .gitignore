@@ -1,3 +1,7 @@
 node_modules
-.cache
 *storybook.log
+node_modules
+
+/.cache
+/build
+.env
